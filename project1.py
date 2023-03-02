@@ -10,39 +10,43 @@
 #from numpy import ndarray
 #from pandas import DataFrame, read_csv, unique
 
-#import PyQt5
-import pyqtgraph
-import os
-import serial
-import numpy
-import sys
+import PyQt5
+from PyQt5 import QtWidgets
 from PyQt5.QtCore import QSize, Qt, pyqtSlot
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton
 from PyQt5.QtGui import QIcon
+import pyqtgraph as pg
+from pyqtgraph import PlotWidget, plot
+from pyqtgraph.Qt import QtCore, QtGui
+import os
+import serial
+import numpy as np
+import sys
 
-def window():
-   app = QApplication(sys.argv)
-   widget = QWidget()
+
+# def window():
+#    app = QApplication(sys.argv)
+#    widget = QWidget()
    
-   button1 = QPushButton(widget)
-   button1.setText("Start")
-   button1.move(64,32)
-   button1.clicked.connect(button1_clicked)
+#    button1 = QPushButton(widget)
+#    button1.setText("Start")
+#    button1.move(64,32)
+#    button1.clicked.connect(button1_clicked)
 
-   button2 = QPushButton(widget)
-   button2.setText("Stop")
-   button2.move(64,64)
-   button2.clicked.connect(button2_clicked)
+#    button2 = QPushButton(widget)
+#    button2.setText("Stop")
+#    button2.move(64,64)
+#    button2.clicked.connect(button2_clicked)
 
-   button3 = QPushButton(widget)
-   button3.setText("Comando")
-   button3.move(64,96)
-   button3.clicked.connect(button3_clicked)
+#    button3 = QPushButton(widget)
+#    button3.setText("Comando")
+#    button3.move(64,96)
+#    button3.clicked.connect(button3_clicked)
 
-   widget.setGeometry(50,50,320,200)
-   widget.setWindowTitle("IAD")
-   widget.show()
-   sys.exit(app.exec_())
+#    widget.setGeometry(50,50,320,200)
+#    widget.setWindowTitle("IAD")
+#    widget.show()
+#    sys.exit(app.exec_())
 
 
 def button1_clicked():
@@ -54,5 +58,30 @@ def button2_clicked():
 def button3_clicked():
    print("Button 3 clicked")   
    
+# if __name__ == '__main__':
+#    window()
+
+class MainWindow(QtWidgets.QMainWindow):
+
+    def __init__(self, *args, **kwargs):
+        super(MainWindow, self).__init__(*args, **kwargs)
+
+        self.graphWidget = pg.PlotWidget()
+        self.setCentralWidget(self.graphWidget)
+
+        hour = [1,2,3,4,5,6,7,8,9,10]
+        temperature = [30,32,34,32,33,31,29,32,35,45]
+
+        # plot data: x, y values
+        self.graphWidget.plot(hour, temperature)
+
+
+def main():
+    app = QtWidgets.QApplication(sys.argv)
+    main = MainWindow()
+    main.show()
+    sys.exit(app.exec_())
+
+
 if __name__ == '__main__':
-   window()
+    main()
