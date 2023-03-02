@@ -1,7 +1,5 @@
 #Trabalho 1 - Aquisição de dados e comunicação
-#Corre um programa Python (3) em janela Qt (PyQt5, com comandos por botão
-#start/stop/comando), com uma janela pyqtgraph, onde coloca os valores recebidos do Arduino
-#num gráfico xy (plot)
+
 #- Envia a intervalos definidos um comando ao Arduíno para que este adquira um valor
 #analógico e o envie
 #- Imprime esse valor, e actualiza o plot
@@ -31,6 +29,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.graphWidget = pg.PlotWidget()
         self.setCentralWidget(self.graphWidget)
 
+        #janela pyqtgraph, onde coloca os valores recebidos do Arduino
+        #num gráfico xy (plot)
         hour = [1,2,3,4,5,6,7,8,9,10]
         temperature = [30,32,34,32,33,31,29,32,35,45]
 
