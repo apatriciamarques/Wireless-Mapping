@@ -1,13 +1,5 @@
 #Trabalho 1 - Aquisição de dados e comunicação
 
-#- Envia a intervalos definidos um comando ao Arduíno para que este adquira um valor
-#analógico e o envie
-#- Imprime esse valor, e actualiza o plot
-
-
-#from numpy import ndarray
-#from pandas import DataFrame, read_csv, unique
-
 import PyQt5
 from PyQt5 import QtWidgets
 from PyQt5.QtCore import QSize, Qt, pyqtSlot
@@ -74,3 +66,8 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
+# Envia, a intervalos definidos, um comando ao Arduíno
+# para que este adquira um valor analógico e o envie
+# Imprime esse valor, e actualiza o plot
