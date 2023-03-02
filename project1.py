@@ -16,30 +16,43 @@ import os
 import serial
 import numpy
 import sys
-from PyQt5.QtCore import QSize, Qt
-from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton
+from PyQt5.QtCore import QSize, Qt, pyqtSlot
+from PyQt5.QtWidgets import QApplication, QWidget, QPushButton
+from PyQt5.QtGui import QIcon
 
-# Subclass QMainWindow to customize your application's main window
-class MainWindow(QMainWindow):
-    def __init__(self):
-        super().__init__()
+def window():
+   app = QApplication(sys.argv)
+   widget = QWidget()
+   
+   button1 = QPushButton(widget)
+   button1.setText("Start")
+   button1.move(64,32)
+   button1.clicked.connect(button1_clicked)
 
-        self.setWindowTitle("My App")
+   button2 = QPushButton(widget)
+   button2.setText("Stop")
+   button2.move(64,64)
+   button2.clicked.connect(button2_clicked)
 
-        button = QPushButton("Press Me!")
+   button3 = QPushButton(widget)
+   button3.setText("Comando")
+   button3.move(64,96)
+   button3.clicked.connect(button3_clicked)
 
-        button = QPushButton("Stop")
+   widget.setGeometry(50,50,320,200)
+   widget.setWindowTitle("IAD")
+   widget.show()
+   sys.exit(app.exec_())
 
-        button = QPushButton("Comando")
 
-        self.setFixedSize(QSize(400, 300))
+def button1_clicked():
+   print("Button 1 clicked")
 
-        # Set the central widget of the Window.
-        self.setMenuWidget(button)
+def button2_clicked():
+   print("Button 2 clicked") 
 
-app = QApplication(sys.argv)
-
-window = MainWindow()
-window.show()
-
-app.exec()
+def button3_clicked():
+   print("Button 3 clicked")   
+   
+if __name__ == '__main__':
+   window()
