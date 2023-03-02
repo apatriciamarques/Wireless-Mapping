@@ -10,20 +10,20 @@
 #from numpy import ndarray
 #from pandas import DataFrame, read_csv, unique
 
-import PyQt5
+#import PyQt5
 import pyqtgraph
 import os
 import serial
 import numpy
-
-#project
-from PyQt5.QtWidgets import QApplication, QWidget
 import sys
+from PyQt5.QtWidgets import QApplication, QWidget, QPushButton
 
 app = QApplication(sys.argv)
 
 # Create a Qt widget, which will be our window.
 window = QWidget()
+window = QPushButton("Push Me")
+window = QPushButton("Push Youe")
 window.show()  
 # Start the event loop.
 app.exec()
