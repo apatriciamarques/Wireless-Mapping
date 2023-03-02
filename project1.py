@@ -23,44 +23,6 @@ import serial
 import numpy as np
 import sys
 
-
-# def window():
-#    app = QApplication(sys.argv)
-#    widget = QWidget()
-   
-#    button1 = QPushButton(widget)
-#    button1.setText("Start")
-#    button1.move(64,32)
-#    button1.clicked.connect(button1_clicked)
-
-#    button2 = QPushButton(widget)
-#    button2.setText("Stop")
-#    button2.move(64,64)
-#    button2.clicked.connect(button2_clicked)
-
-#    button3 = QPushButton(widget)
-#    button3.setText("Comando")
-#    button3.move(64,96)
-#    button3.clicked.connect(button3_clicked)
-
-#    widget.setGeometry(50,50,320,200)
-#    widget.setWindowTitle("IAD")
-#    widget.show()
-#    sys.exit(app.exec_())
-
-
-def button1_clicked():
-   print("Button 1 clicked")
-
-def button2_clicked():
-   print("Button 2 clicked") 
-
-def button3_clicked():
-   print("Button 3 clicked")   
-   
-# if __name__ == '__main__':
-#    window()
-
 class MainWindow(QtWidgets.QMainWindow):
 
     def __init__(self, *args, **kwargs):
@@ -75,10 +37,37 @@ class MainWindow(QtWidgets.QMainWindow):
         # plot data: x, y values
         self.graphWidget.plot(hour, temperature)
 
+def button1_clicked():
+   print("Button 1 clicked")
+
+def button2_clicked():
+   print("Button 2 clicked") 
+
+def button3_clicked():
+   print("Button 3 clicked")   
 
 def main():
-    app = QtWidgets.QApplication(sys.argv)
+
+    app = QApplication(sys.argv)
     main = MainWindow()
+
+    button1 = QPushButton(main)
+    button1.setText("Start")
+    button1.move(64,32)
+    button1.clicked.connect(button1_clicked)
+
+    button2 = QPushButton(main)
+    button2.setText("Stop")
+    button2.move(64,64)
+    button2.clicked.connect(button2_clicked)
+
+    button3 = QPushButton(main)
+    button3.setText("Comando")
+    button3.move(64,96)
+    button3.clicked.connect(button3_clicked)
+
+    main.setGeometry(50,50,320,200)
+    main.setWindowTitle("IAD")
     main.show()
     sys.exit(app.exec_())
 
