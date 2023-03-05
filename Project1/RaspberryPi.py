@@ -15,6 +15,9 @@ import sys
 
 #FRONTEND
 
+hour=[]
+temperature=[]
+
 class MainWindow(QtWidgets.QMainWindow):
 
     def __init__(self, *args, **kwargs):
@@ -22,6 +25,8 @@ class MainWindow(QtWidgets.QMainWindow):
 
         self.graphWidget = pg.PlotWidget()
         self.setCentralWidget(self.graphWidget)
+
+
 
         #janela pyqtgraph, onde coloca os valores recebidos do Arduino
         #num gráfico xy (plot)
