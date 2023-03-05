@@ -72,41 +72,41 @@ if __name__ == '__main__':
 
 #BACKEND
 
-import serial
-import time
+# import serial
+# import time
 
 # USB_PORT = "/dev/ttyUSB0"  # Arduino Uno R3 Compatible
-USB_PORT = "/dev/ttyACM0"  # Arduino Uno WiFi Rev2
+# USB_PORT = "/dev/ttyACM0"  # Arduino Uno WiFi Rev2
 
 # Imports
-import serial
+# import serial
 
-try:
-   ser = serial.Serial(USB_PORT, 9600, timeout=2)
-except:
-   print("ERROR - Could not open USB serial port.  Please check your port name and permissions.")
-   print("Exiting program.")
-   exit()
+# try:
+#    ser = serial.Serial(USB_PORT, 9600, timeout=2)
+# except:
+#    print("ERROR - Could not open USB serial port.  Please check your port name and permissions.")
+#    print("Exiting program.")
+#    exit()
 
 # Read and record the data
-data =[]                       # empty list to store the data
-for i in range(50):
-    b = ser.readline()         # read a byte string
-        string_n = b.decode()  # decode byte string into Unicode  
-    string = string_n.rstrip() # remove \n and \r
-    flt = float(string)        # convert string to float
-    print(flt)
-    data.append(flt)           # add to the end of data list
-    time.sleep(0.1)            # wait (sleep) 0.1 seconds
+# data =[]                       # empty list to store the data
+# for i in range(50):
+#     b = ser.readline()         # read a byte string
+#         string_n = b.decode()  # decode byte string into Unicode  
+#     string = string_n.rstrip() # remove \n and \r
+#     flt = float(string)        # convert string to float
+#     print(flt)
+#     data.append(flt)           # add to the end of data list
+#     time.sleep(0.1)            # wait (sleep) 0.1 seconds
 
-ser.close()
+# ser.close()
 
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 # if using a Jupyter notebook include
-%matplotlib inline
+# %matplotlib inline
 
-plt.plot(data)
-plt.xlabel('Time (seconds)')
-plt.ylabel('Potentiometer Reading')
-plt.title('Potentiometer Reading vs. Time')
-plt.show()
+# plt.plot(data)
+# plt.xlabel('Time (seconds)')
+# plt.ylabel('Potentiometer Reading')
+# plt.title('Potentiometer Reading vs. Time')
+# plt.show()
