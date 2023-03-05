@@ -26,12 +26,10 @@ class MainWindow(QtWidgets.QMainWindow):
         self.graphWidget = pg.PlotWidget()
         self.setCentralWidget(self.graphWidget)
 
-
-
         #janela pyqtgraph, onde coloca os valores recebidos do Arduino
         #num gráfico xy (plot)
-        hour = [1,2,3,4,5,6,7,8,9,10]
-        temperature = [30,32,34,32,33,31,29,32,35,45]
+        hour = np.random.randint(1,101,10) #= [1,2,3,4,5,6,7,8,9,10]
+        temperature = np.random.randint(1,101,10) #[30,32,34,32,33,31,29,32,35,45]
 
         # plot data: x, y values
         self.graphWidget.plot(hour, temperature)
@@ -73,45 +71,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
-#BACKEND
-
-# import serial
-# import time
-
-# USB_PORT = "/dev/ttyUSB0"  # Arduino Uno R3 Compatible
-# USB_PORT = "/dev/ttyACM0"  # Arduino Uno WiFi Rev2
-
-# Imports
-# import serial
-
-# try:
-#    ser = serial.Serial(USB_PORT, 9600, timeout=2)
-# except:
-#    print("ERROR - Could not open USB serial port.  Please check your port name and permissions.")
-#    print("Exiting program.")
-#    exit()
-
-# Read and record the data
-# data =[]                       # empty list to store the data
-# for i in range(50):
-#     b = ser.readline()         # read a byte string
-#         string_n = b.decode()  # decode byte string into Unicode  
-#     string = string_n.rstrip() # remove \n and \r
-#     flt = float(string)        # convert string to float
-#     print(flt)
-#     data.append(flt)           # add to the end of data list
-#     time.sleep(0.1)            # wait (sleep) 0.1 seconds
-
-# ser.close()
-
-# import matplotlib.pyplot as plt
-# if using a Jupyter notebook include
-# %matplotlib inline
-
-# plt.plot(data)
-# plt.xlabel('Time (seconds)')
-# plt.ylabel('Potentiometer Reading')
-# plt.title('Potentiometer Reading vs. Time')
-# plt.show()
